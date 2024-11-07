@@ -1,0 +1,26 @@
+<!-- templates/recommendations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Movies Similar to Genre: "{{ genre }}"</h1>
+        <ul>
+            {% for _, movie in recommendations.iterrows() %}
+                <li>
+                    <strong>Movie:</strong> {{ movie['title'] }}<br>
+                    <strong>Year:</strong> {{ movie['year'] }}<br>
+                    <strong>Genre:</strong> {{ movie['genres'] }}<br>
+                    <strong>Description:</strong> {{ movie['description'] }}<br>
+                    <strong>Rating:</strong> {{ movie['rating'] }}<br>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}">Search Another Genre</a>
+    </div>
+</body>
+</html>
